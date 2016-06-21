@@ -1,0 +1,44 @@
+@startuml
+
+'Class definitions:
+
+class Restaurant{
+    string name
+    string address
+    strint telephone
+}
+
+class Dish{
+    string name
+    string description
+    float price
+    datetime pub_date
+
+}
+
+class Resource{
+    enum type
+    string url
+}
+
+class Opinion {
+    string opinion
+    datetime pub_date
+    float rate1
+    float rate2
+    float rate3
+}
+
+class RateTopic{
+    string name
+    int range
+    float avgRate
+}
+'Relations:
+
+Restaurant -- "*" Dish
+Dish -- "*" Resource
+Dish -- "*" Opinion
+Dish -- "*" RateTopic
+
+@enduml
