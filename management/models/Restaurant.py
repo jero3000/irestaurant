@@ -16,3 +16,7 @@ class Restaurant(models.Model):
     @python_2_unicode_compatible
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Restaurante"
+        verbose_name_plural = "Restaurantes"
