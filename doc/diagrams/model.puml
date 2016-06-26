@@ -27,6 +27,8 @@ class Opinion {
     float rate1
     float rate2
     float rate3
+    float rate4
+    float rate5
 }
 
 class RateTopic{
@@ -34,11 +36,11 @@ class RateTopic{
     int range
     float avgRate
 }
-'Relations:
+'Relations:∫
 
 Restaurant -- "*" Dish
 Dish -- "*" Resource
 Dish -- "*" Opinion
-Dish -- "*" RateTopic
+Dish -- "0..5" RateTopic
 
 @enduml
