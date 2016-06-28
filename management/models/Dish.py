@@ -14,11 +14,35 @@ class Dish(models.Model):
         ('POS', "Postre"),
     )
 
-    name = models.CharField(max_length=200, verbose_name="Nombre", blank=False)
-    type = models.CharField(max_length=3, choices=CH_DISH_TYPE, blank=False, verbose_name="Tipo")
-    description = models.TextField(verbose_name="Descripción", blank=True)
-    price = MoneyField(verbose_name="Precio", max_digits=10, decimal_places=2, default_currency='EUR', blank=True)
-    pub_date = models.DateTimeField(verbose_name="Fecha de publicación", blank=False)
+    name = models.CharField(
+        max_length=200,
+        verbose_name="Nombre",
+        blank=False
+    )
+
+    type = models.CharField(
+        max_length=3,
+        choices=CH_DISH_TYPE,
+        blank=False,
+        verbose_name="Tipo"
+    )
+
+    description = models.TextField(
+        verbose_name="Descripción",
+        blank=True
+    )
+
+    price = MoneyField(
+        verbose_name="Precio",
+        max_digits=10,
+        decimal_places=2,
+        default_currency='EUR',
+        blank=True)
+
+    pub_date = models.DateTimeField(
+        verbose_name="Fecha de publicación",
+        blank=False
+    )
 
     @python_2_unicode_compatible
     def __str__(self):
