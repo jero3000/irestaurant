@@ -9,7 +9,7 @@ Python dependencies:
 
 Django dependencies:
 
-- django-money 0.8
-
+- django-money 0.8 - https://github.com/django-money/django-money
+- django-versatileimagefield 1.5 - http://django-versatileimagefield.readthedocs.io/en/latest/
 
 
