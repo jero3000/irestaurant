@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from Resource import Resource
 from versatileimagefield.fields import VersatileImageField

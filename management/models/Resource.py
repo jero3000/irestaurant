@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
+@python_2_unicode_compatible
 class Resource(models.Model):
     """
     Represents a multimedia resource, it can be an image, a video...
@@ -31,7 +34,6 @@ class Resource(models.Model):
         blank = False
     )
 
-    @python_2_unicode_compatible
     def __str__(self):
         return self.title;
 

@@ -6,6 +6,7 @@ from django.utils.encoding import python_2_unicode_compatible
 
 from django.db import models
 
+@python_2_unicode_compatible
 class Restaurant(models.Model):
     name = models.CharField(
         max_length=200,
@@ -29,7 +30,6 @@ class Restaurant(models.Model):
         verbose_name="Telefono"
     )
 
-    @python_2_unicode_compatible
     def __str__(self):
         return self.name
 

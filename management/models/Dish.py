@@ -6,6 +6,7 @@ import moneyed
 from djmoney.models.fields import MoneyField
 from django.db import models
 
+@python_2_unicode_compatible
 class Dish(models.Model):
     CH_DISH_TYPE = (
         ('APE', "Aperitivo"),
@@ -44,7 +45,6 @@ class Dish(models.Model):
         blank=False
     )
 
-    @python_2_unicode_compatible
     def __str__(self):
         return self.name
 
