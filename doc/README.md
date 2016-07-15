@@ -11,5 +11,6 @@ Django dependencies:
 
 - django-money 0.8 - https://github.com/django-money/django-money
 - django-versatileimagefield 1.5 - http://django-versatileimagefield.readthedocs.io/en/latest/
+- django-embed-video 1.1.0 - http://django-embed-video.readthedocs.io/en/v1.1.0/
 
 

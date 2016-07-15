@@ -9,6 +9,9 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 class Resource(models.Model):
     """
     Represents a multimedia resource, it can be an image, a video...
+
+    This class uses a generic relation in Django. Documentation:
+    https://docs.djangoproject.com/en/1.9/ref/contrib/contenttypes/
     """
 
     content_type =  models.ForeignKey(

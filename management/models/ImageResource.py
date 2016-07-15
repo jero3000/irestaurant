@@ -12,7 +12,8 @@ class ImageResource(Resource):
 
     image = VersatileImageField(
         verbose_name='Imagen',
-        upload_to='images/'
+        upload_to='images/',
+        blank=False
     )
 
     height = models.PositiveIntegerField(
