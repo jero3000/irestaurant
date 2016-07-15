@@ -21,7 +21,7 @@ class Resource(models.Model):
 
     object_id = models.PositiveIntegerField()
 
-    content_type = GenericForeignKey(
+    content_object = GenericForeignKey(
         'content_type',
         'object_id'
     )
