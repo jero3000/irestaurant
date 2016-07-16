@@ -17,13 +17,13 @@ class ImageResource(Resource):
     )
 
     height = models.PositiveIntegerField(
-        'Image Height',
+        'Alto',
         blank=True,
         null=True
     )
 
     width = models.PositiveIntegerField(
-        'Image Width',
+        'Ancho',
         blank=True,
         null=True
     )
