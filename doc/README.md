@@ -13,4 +13,7 @@ Django dependencies:
 - django-versatileimagefield 1.5 - http://django-versatileimagefield.readthedocs.io/en/latest/
 - django-embed-video 1.1.0 - http://django-embed-video.readthedocs.io/en/v1.1.0/
 
+Admin login:
 
+user: jmunoz
+pass: irestaurant123
