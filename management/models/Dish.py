@@ -2,9 +2,9 @@
 
 from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible
-import moneyed
 from djmoney.models.fields import MoneyField
 from django.db import models
+from Restaurant import Restaurant
 
 @python_2_unicode_compatible
 class Dish(models.Model):
@@ -13,6 +13,12 @@ class Dish(models.Model):
         ('ENT', "Entrante"),
         ('PRI', "Princiapal"),
         ('POS', "Postre"),
+    )
+
+    restaurant = models.ForeignKey(
+        Restaurant,
+        on_delete=models.CASCADE,
+        verbose_name='Restaurante'
     )
 
     name = models.CharField(
