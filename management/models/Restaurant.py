@@ -8,6 +8,11 @@ from django.db import models
 
 @python_2_unicode_compatible
 class Restaurant(models.Model):
+    """
+    This class represents a Restaurant
+    """
+    # TODO: email, opening hours fields
+
     name = models.CharField(
         max_length=200,
         verbose_name="Nombre",
