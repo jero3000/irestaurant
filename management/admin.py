@@ -12,14 +12,14 @@ class RestaurantAdmin(admin.ModelAdmin):
 
 class ImageResourceInline(GenericStackedInline):
     model = ImageResource
-    max_num = 1
+    extra = 1
     readonly_fields = ['height', 'width']
     fields = ['title', 'image', 'height', 'width', 'pub_date']
 
 
 class VideoResourceInline(AdminVideoMixin, GenericStackedInline):
     model = VideoResource
-    max_num = 1
+    extra = 1
     fields = ['title', 'video', 'pub_date']
 
 class DishAdmin(admin.ModelAdmin):
