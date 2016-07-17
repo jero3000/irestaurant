@@ -2,7 +2,7 @@
 
 from django.db import models
 from Resource import Resource
-from versatileimagefield.fields import VersatileImageField
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 
 class ImageResource(Resource):
@@ -13,19 +13,26 @@ class ImageResource(Resource):
     image = VersatileImageField(
         verbose_name='Imagen',
         upload_to='images/',
-        blank=False
+        height_field='height',
+        width_field='width',
+        blank=False,
+        ppoi_field='ppoi'
     )
 
     height = models.PositiveIntegerField(
-        'Alto',
+        verbose_name='Alto',
         blank=True,
         null=True
     )
 
     width = models.PositiveIntegerField(
-        'Ancho',
+        verbose_name='Ancho',
         blank=True,
         null=True
+    )
+
+    ppoi = PPOIField(
+        verbose_name='Punto de interés'
     )
 
     class Meta:
