@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.conf.urls.static import static
-from django.contrib import admin
 from django.conf import settings
+from .admin import admin_site
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin_site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # TODO: Serving media files is not suitable for production use!

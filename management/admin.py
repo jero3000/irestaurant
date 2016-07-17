@@ -5,6 +5,8 @@ from django.contrib import admin
 from .models import Restaurant, Dish, ImageResource, VideoResource
 from django.contrib.contenttypes.admin import GenericStackedInline
 from embed_video.admin import AdminVideoMixin
+from irestaurant.admin import admin_site
+
 
 class RestaurantAdmin(admin.ModelAdmin):
     fields = ['name', 'address', 'telephone']
@@ -29,6 +31,6 @@ class DishAdmin(admin.ModelAdmin):
     ]
     inlines = [ImageResourceInline, VideoResourceInline]
 
-
-admin.site.register(Restaurant, RestaurantAdmin)
-admin.site.register(Dish, DishAdmin)
+#Use the custom admin_site defined in irestaurant/admin.py
+admin_site.register(Restaurant, RestaurantAdmin)
+admin_site.register(Dish, DishAdmin)
