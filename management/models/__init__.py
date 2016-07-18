@@ -3,3 +3,7 @@ from Dish import Dish
 from Resource import Resource
 from ImageResource import ImageResource
 from VideoResource import VideoResource
+from Season import Season
+from OpeningHours import OpeningHours
+from TimeSlot import TimeSlot
+from DayClosed import DayClosed
