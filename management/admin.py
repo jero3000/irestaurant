@@ -2,11 +2,16 @@
 
 from django.contrib import admin
 
-from .models import Restaurant, Dish, ImageResource, VideoResource, DayClosed, Season, OpeningHours, TimeSlot
+from .models import Restaurant, Dish, ImageResource, VideoResource, DayClosed, Season, OpeningHours, TimeSlot, Address
 from django.contrib.contenttypes.admin import GenericStackedInline
 from embed_video.admin import AdminVideoMixin
 from irestaurant.admin import admin_site
 from django import forms
+
+class AddressInline(admin.StackedInline):
+    model = Address
+    extra = 1
+
 
 class SeasonInline(admin.TabularInline):
     model = Season
@@ -19,8 +24,8 @@ class DayClosedInline(admin.TabularInline):
 
 
 class RestaurantAdmin(admin.ModelAdmin):
-    fields = ['name', 'address', 'telephone']
-    inlines = [SeasonInline, DayClosedInline]
+    fields = ['name', 'email']
+    inlines = [AddressInline, SeasonInline, DayClosedInline]
 
 
 class ImageResourceInline(GenericStackedInline):
