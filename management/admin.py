@@ -2,14 +2,25 @@
 
 from django.contrib import admin
 
-from .models import Restaurant, Dish, ImageResource, VideoResource
+from .models import Restaurant, Dish, ImageResource, VideoResource, DayClosed, Season, OpeningHours, TimeSlot
 from django.contrib.contenttypes.admin import GenericStackedInline
 from embed_video.admin import AdminVideoMixin
 from irestaurant.admin import admin_site
+from django import forms
+
+class SeasonInline(admin.TabularInline):
+    model = Season
+    extra = 1
+
+
+class DayClosedInline(admin.TabularInline):
+    model = DayClosed
+    extra = 1
 
 
 class RestaurantAdmin(admin.ModelAdmin):
     fields = ['name', 'address', 'telephone']
+    inlines = [SeasonInline, DayClosedInline]
 
 
 class ImageResourceInline(GenericStackedInline):
@@ -24,6 +35,7 @@ class VideoResourceInline(AdminVideoMixin, GenericStackedInline):
     extra = 1
     fields = ['title', 'video', 'pub_date']
 
+
 class DishAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['restaurant', 'name', 'type', 'pub_date']}),
@@ -31,6 +43,35 @@ class DishAdmin(admin.ModelAdmin):
     ]
     inlines = [ImageResourceInline, VideoResourceInline]
 
+
+class OpeningHoursInline(admin.TabularInline):
+    model = OpeningHours
+    extra = 1
+
+
+class SeasonAdmin(admin.ModelAdmin):
+    inlines = [OpeningHoursInline]
+
+
+class TimeSlotInline(admin.TabularInline):
+    model = TimeSlot
+    extra = 1
+
+class MultipleChoiceForm(forms.ModelForm):
+    class Meta:
+        model = OpeningHours
+        fields = ('temporada', 'weekdays',)
+        widgets = {
+            'weekdays' : forms.SelectMultiple
+        }
+
+
+class OpeningHoursAdmin(admin.ModelAdmin):
+    inlines = [TimeSlotInline]
+    form = MultipleChoiceForm
+
 #Use the custom admin_site defined in irestaurant/admin.py
 admin_site.register(Restaurant, RestaurantAdmin)
 admin_site.register(Dish, DishAdmin)
+admin_site.register(Season, SeasonAdmin)
+admin_site.register(OpeningHours, OpeningHoursAdmin)
