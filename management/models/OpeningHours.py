@@ -20,7 +20,7 @@ class OpeningHours(models.Model):
         ('do', 'Domingo'),
     )
 
-    restaurant = models.ForeignKey(
+    temporada = models.ForeignKey(
         Season,
         on_delete=models.CASCADE,
         verbose_name='Temporada',
