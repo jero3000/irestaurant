@@ -3,6 +3,7 @@
 from django.db import models
 from Resource import Resource
 from versatileimagefield.fields import VersatileImageField, PPOIField
+from django.utils.translation import ugettext_lazy as _
 
 
 class ImageResource(Resource):
@@ -11,7 +12,7 @@ class ImageResource(Resource):
     """
 
     image = VersatileImageField(
-        verbose_name='Imagen',
+        verbose_name=_('Image'),
         upload_to='images/',
         height_field='height',
         width_field='width',
@@ -20,21 +21,22 @@ class ImageResource(Resource):
     )
 
     height = models.PositiveIntegerField(
-        verbose_name='Alto',
+        verbose_name=_('Height'),
         blank=True,
         null=True
     )
 
     width = models.PositiveIntegerField(
-        verbose_name='Ancho',
+        verbose_name=_('Width'),
         blank=True,
         null=True
     )
 
+    #Point of interest filed
     ppoi = PPOIField(
-        verbose_name='Punto de interés'
+        verbose_name=_('Point of interest')
     )
 
     class Meta:
-        verbose_name = 'Imagen'
-        verbose_name_plural = 'Imágenes'
+        verbose_name = _('Image')
+        verbose_name_plural = _('Images')

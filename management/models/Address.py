@@ -3,7 +3,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from Restaurant import Restaurant
-
+from django.utils.translation import ugettext_lazy as _
 
 class Address(models.Model):
     """
@@ -12,57 +12,57 @@ class Address(models.Model):
 
     line1 = models.CharField(
         max_length=200,
-        verbose_name='Linea 1 de dirección',
-        help_text='Calle y número, apartado de correos, nombre empresa',
+        verbose_name=_('Line 1'),
+        help_text=_('Street and number, post office box, company name'),
         blank=False,
         null=False
     )
 
     line2 = models.CharField(
         max_length=200,
-        verbose_name='Linea 2 de dirección',
-        help_text='Otra información adicional',
+        verbose_name=_('Line 2'),
+        help_text=_('Other additional info'),
         blank=True,
         null=True
     )
 
     city = models.CharField(
         max_length=200,
-        verbose_name='Ciudad',
+        verbose_name=_('City'),
         blank=False,
         null=False
     )
 
     state = models.CharField(
         max_length=200,
-        verbose_name='Provincia',
+        verbose_name=_('State'),
         blank=False,
         null=False
     )
 
     postal_code = models.CharField(
         max_length=200,
-        verbose_name='Código postal',
+        verbose_name=_('Postal code'),
         blank=False,
         null=False
     )
 
     pais = models.CharField(
         max_length=200,
-        verbose_name='Pais',
+        verbose_name=_('Country'),
         blank=False,
         null=False
     )
 
     phone_regex = RegexValidator(
         regex=r'^\+?1?\d{9,15}$',
-        message="El número de telefono debe tener el siguiente formato: '+999999999'. No más de 15 dígitos"
+        message=_("The phone number should have the following format: '+999999999'. 15 digits max")
     )
 
     telephone = models.CharField(
         max_length=20,
         validators=[phone_regex],
-        verbose_name="Telefono"
+        verbose_name=_('Telephone')
     )
 
     restaurant = models.ForeignKey(
@@ -76,5 +76,5 @@ class Address(models.Model):
         return self.line1
 
     class Meta:
-        verbose_name = "Dirección"
-        verbose_name_plural = "Direcciones"
+        verbose_name = _('Address')
+        verbose_name_plural = _('Addresses')

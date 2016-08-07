@@ -3,7 +3,7 @@
 from django.db import models
 from Restaurant import Restaurant
 from django.utils.encoding import python_2_unicode_compatible
-
+from django.utils.translation import ugettext_lazy as _
 
 @python_2_unicode_compatible
 class DayClosed(models.Model):
@@ -13,8 +13,7 @@ class DayClosed(models.Model):
 
 
     day = models.DateField(
-        verbose_name='Fecha de inicio',
-        help_text='Fecha de inicio de la temporada',
+        verbose_name=_('Day closed'),
         blank=False,
         null=False
     )
@@ -30,5 +29,5 @@ class DayClosed(models.Model):
         return str(self.restaurant) + str(self.day)
 
     class Meta:
-        verbose_name='Día cerrado'
-        verbose_name_plural='Días cerrado'
+        verbose_name=_('Day closed')
+        verbose_name_plural=_('Days closed')

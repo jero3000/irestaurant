@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-07 20:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: irestaurant/admin.py:11
+msgid "iRestaurant Administration"
+msgstr "Administración de iRestaurant"
+
+#: management/admin.py:48
+msgid "Additional info"
+msgstr "Información adicional"
+
+#: management/models/Address.py:15
+msgid "Line 1"
+msgstr "Línea 1"
+
+#: management/models/Address.py:16
+msgid "Street and number, post office box, company name"
+msgstr "Calle y número, apartado de correos, nombre de empresa"
+
+#: management/models/Address.py:23
+msgid "Line 2"
+msgstr "Línea 2"
+
+#: management/models/Address.py:24
+msgid "Other additional info"
+msgstr "Otra información adicional"
+
+#: management/models/Address.py:31
+msgid "City"
+msgstr "Ciudad"
+
+#: management/models/Address.py:38
+msgid "State"
+msgstr "Provincia"
+
+#: management/models/Address.py:45
+msgid "Postal code"
+msgstr "Código postal"
+
+#: management/models/Address.py:52
+msgid "Country"
+msgstr "País"
+
+#: management/models/Address.py:59
+msgid ""
+"The phone number should have the following format: '+999999999'. 15 digits "
+"max"
+msgstr "El número de telefono debe tener el siguiente format: '+999999999'. 15 dígitos máximo"
+
+#: management/models/Address.py:65
+msgid "Telephone"
+msgstr "Telefono"
+
+#: management/models/Address.py:79
+msgid "Address"
+msgstr "Dirección"
+
+#: management/models/Address.py:80
+msgid "Addresses"
+msgstr "Direcciones"
+
+#: management/models/DayClosed.py:16 management/models/DayClosed.py:32
+msgid "Day closed"
+msgstr "Dia cerrado"
+
+#: management/models/DayClosed.py:33
+msgid "Days closed"
+msgstr "Dias cerrado"
+
+#: management/models/Dish.py:13
+msgid "Snack"
+msgstr "Aperitivo"
+
+#: management/models/Dish.py:14
+msgid "Starter"
+msgstr "Entrante"
+
+#: management/models/Dish.py:15
+msgid "Main"
+msgstr "Principal"
+
+#: management/models/Dish.py:16
+msgid "Dessert"
+msgstr "Postre"
+
+#: management/models/Dish.py:22 management/models/Restaurant.py:30
+#: management/models/Restaurant.py:31
+msgid "Restaurant"
+msgstr "Restaurante"
+
+#: management/models/Dish.py:27 management/models/Restaurant.py:16
+#: management/models/Season.py:17
+msgid "Name"
+msgstr "Nombre"
+
+#: management/models/Dish.py:35
+msgid "Type"
+msgstr "Tipo"
+
+#: management/models/Dish.py:39
+msgid "Description"
+msgstr "Description"
+
+#: management/models/Dish.py:44
+msgid "Price"
+msgstr "Precio"
+
+#: management/models/Dish.py:51 management/models/Resource.py:37
+msgid "Publish date"
+msgstr "Fecha de publicación"
+
+#: management/models/Dish.py:59
+msgid "Dish"
+msgstr "Plato"
+
+#: management/models/Dish.py:60
+msgid "Dishes"
+msgstr "Platos"
+
+#: management/models/ImageResource.py:15 management/models/ImageResource.py:41
+msgid "Image"
+msgstr "Imagen"
+
+#: management/models/ImageResource.py:24
+msgid "Height"
+msgstr "Alto"
+
+#: management/models/ImageResource.py:30
+msgid "Width"
+msgstr "Ancho"
+
+#: management/models/ImageResource.py:37
+msgid "Point of interest"
+msgstr "Punto de interés"
+
+#: management/models/ImageResource.py:42
+msgid "Images"
+msgstr "Imágenes"
+
+#: management/models/OpeningHours.py:14
+msgid "Monday"
+msgstr "Lunes"
+
+#: management/models/OpeningHours.py:15
+msgid "Tuesday"
+msgstr "Martes"
+
+#: management/models/OpeningHours.py:16
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: management/models/OpeningHours.py:17
+msgid "Thursday"
+msgstr "Jueves"
+
+#: management/models/OpeningHours.py:18
+msgid "Friday"
+msgstr "Viernes"
+
+#: management/models/OpeningHours.py:19
+msgid "Saturday"
+msgstr "Sábado"
+
+#: management/models/OpeningHours.py:20
+msgid "Sunday"
+msgstr "Domingo"
+
+#: management/models/OpeningHours.py:26 management/models/Season.py:47
+msgid "Season"
+msgstr "Temporada"
+
+#: management/models/OpeningHours.py:34
+msgid "Weekdays"
+msgstr "Días de la semana"
+
+#: management/models/OpeningHours.py:35
+msgid "Weeksdays in which the schedule applies"
+msgstr "Días de la semana en los que aplica el horario"
+
+#: management/models/OpeningHours.py:44 management/models/OpeningHours.py:45
+msgid "Opening hours"
+msgstr "Horas de apertura"
+
+#: management/models/Resource.py:33
+msgid "Title"
+msgstr "Título"
+
+#: management/models/Restaurant.py:21
+msgid "Email"
+msgstr "Email"
+
+#: management/models/Season.py:23 management/models/TimeSlot.py:15
+msgid "Begin"
+msgstr "Inicio"
+
+#: management/models/Season.py:24
+msgid "Season begin date"
+msgstr "Fecha de inicio de la temporada"
+
+#: management/models/Season.py:30 management/models/TimeSlot.py:21
+msgid "End"
+msgstr "Fin"
+
+#: management/models/Season.py:31
+msgid "Season end date"
+msgstr "Fecha de fin de la temporada"
+
+#: management/models/Season.py:48
+msgid "Seasons"
+msgstr "Temporadas"
+
+#: management/models/TimeSlot.py:37
+msgid "Time slot"
+msgstr "Intervalo horario"
+
+#: management/models/TimeSlot.py:38
+msgid "Time slots"
+msgstr "Intervalos horarios"
+
+#: management/models/VideoResource.py:13 management/models/VideoResource.py:19
+msgid "Video"
+msgstr "Video"
+
+#: management/models/VideoResource.py:20
+msgid "Videos"
+msgstr "Videos"

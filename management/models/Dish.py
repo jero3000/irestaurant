@@ -5,25 +5,26 @@ from django.utils.encoding import python_2_unicode_compatible
 from djmoney.models.fields import MoneyField
 from django.db import models
 from Restaurant import Restaurant
+from django.utils.translation import ugettext_lazy as _
 
 @python_2_unicode_compatible
 class Dish(models.Model):
     CH_DISH_TYPE = (
-        ('APE', "Aperitivo"),
-        ('ENT', "Entrante"),
-        ('PRI', "Princiapal"),
-        ('POS', "Postre"),
+        ('APE', _("Snack")),
+        ('ENT', _("Starter")),
+        ('PRI', _("Main")),
+        ('POS', _("Dessert")),
     )
 
     restaurant = models.ForeignKey(
         Restaurant,
         on_delete=models.CASCADE,
-        verbose_name='Restaurante'
+        verbose_name=_('Restaurant')
     )
 
     name = models.CharField(
         max_length=200,
-        verbose_name="Nombre",
+        verbose_name=_("Name"),
         blank=False
     )
 
@@ -31,23 +32,23 @@ class Dish(models.Model):
         max_length=3,
         choices=CH_DISH_TYPE,
         blank=False,
-        verbose_name="Tipo"
+        verbose_name=_("Type")
     )
 
     description = models.TextField(
-        verbose_name="Descripción",
+        verbose_name=_("Description"),
         blank=True
     )
 
     price = MoneyField(
-        verbose_name="Precio",
+        verbose_name=_("Price"),
         max_digits=10,
         decimal_places=2,
         default_currency='EUR',
         blank=True)
 
     pub_date = models.DateTimeField(
-        verbose_name="Fecha de publicación",
+        verbose_name=_("Publish date"),
         blank=False
     )
 
@@ -55,5 +56,5 @@ class Dish(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Plato"
-        verbose_name_plural = "Platos"
+        verbose_name = _("Dish")
+        verbose_name_plural = _("Dishes")

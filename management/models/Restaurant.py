@@ -2,7 +2,7 @@
 
 from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible
-
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 
@@ -13,12 +13,12 @@ class Restaurant(models.Model):
     """
     name = models.CharField(
         max_length=200,
-        verbose_name="Nombre",
+        verbose_name=_('Name'),
         blank=False
     )
 
     email = models.EmailField(
-        verbose_name='Email',
+        verbose_name=_('Email'),
         blank=True,
         null=True
     )
@@ -27,5 +27,5 @@ class Restaurant(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Restaurante"
-        verbose_name_plural = "Restaurantes"
+        verbose_name = _("Restaurant")
+        verbose_name_plural = _("Restaurant")

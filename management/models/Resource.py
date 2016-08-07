@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.utils.translation import ugettext_lazy as _
 
 @python_2_unicode_compatible
 class Resource(models.Model):
@@ -29,11 +30,11 @@ class Resource(models.Model):
     title = models.CharField(
         max_length=200,
         blank=True,
-        verbose_name="Título"
+        verbose_name=_("Title")
     )
 
     pub_date = models.DateTimeField(
-        verbose_name="Fecha de publicación",
+        verbose_name=_("Publish date"),
         blank = False
     )
 

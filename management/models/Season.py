@@ -3,6 +3,8 @@
 from django.db import models
 from Restaurant import Restaurant
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
+
 
 @python_2_unicode_compatible
 class Season(models.Model):
@@ -12,21 +14,21 @@ class Season(models.Model):
 
     name = models.CharField(
         max_length=200,
-        verbose_name='Nombre',
+        verbose_name=_('Name'),
         blank=True,
         null=True
     )
 
     begin = models.DateField(
-        verbose_name='Fecha de inicio',
-        help_text='Fecha de inicio de la temporada',
+        verbose_name=_('Begin'),
+        help_text=_('Season begin date'),
         blank=False,
         null=False
     )
 
     end = models.DateField(
-        verbose_name='Fecha de fin',
-        help_text='Fecha de fin de la temporada',
+        verbose_name=_('End'),
+        help_text=_('Season end date'),
         blank=False,
         null=False
     )
@@ -42,5 +44,5 @@ class Season(models.Model):
         return str(self.restaurant) + str(self.begin) + " - " + str(self.end)
 
     class Meta:
-        verbose_name='Temporada'
-        verbose_name_plural='Temporadas'
+        verbose_name=_('Season')
+        verbose_name_plural=_('Seasons')

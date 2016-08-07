@@ -7,6 +7,7 @@ from django.contrib.contenttypes.admin import GenericStackedInline
 from embed_video.admin import AdminVideoMixin
 from irestaurant.admin import admin_site
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 
 class AddressInline(admin.StackedInline):
     model = Address
@@ -44,7 +45,7 @@ class VideoResourceInline(AdminVideoMixin, GenericStackedInline):
 class DishAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['restaurant', 'name', 'type', 'pub_date']}),
-        ('Información adicional', {'fields' : ['description', 'price'], 'classes': ['collapse']})
+        (_('Additional info'), {'fields' : ['description', 'price'], 'classes': ['collapse']})
     ]
     inlines = [ImageResourceInline, VideoResourceInline]
 
@@ -65,7 +66,7 @@ class TimeSlotInline(admin.TabularInline):
 class MultipleChoiceForm(forms.ModelForm):
     class Meta:
         model = OpeningHours
-        fields = ('temporada', 'weekdays',)
+        fields = ('season', 'weekdays',)
         widgets = {
             'weekdays' : forms.SelectMultiple
         }
