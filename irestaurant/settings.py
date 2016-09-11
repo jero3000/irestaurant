@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'management.apps.ManagementConfig',
     'versatileimagefield',
     'embed_video',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -179,3 +180,6 @@ LANGUAGES = (
     ('es', 'Spanish'),
     ('en', 'English'),
 )
+
+#This is the default language for models
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'

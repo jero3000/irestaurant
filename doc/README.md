@@ -15,6 +15,7 @@ Django dependencies:
 - django-versatileimagefield 1.5 - http://django-versatileimagefield.readthedocs.io/en/latest/
 - django-embed-video 1.1.0 - http://django-embed-video.readthedocs.io/en/v1.1.0/
 - django-extensions 1.6.7 - http://django-extensions.readthedocs.io/en/latest/
+- django-modeltranslation 0.11 http://django-modeltranslation.readthedocs.io/en/stable/installation.html
 - djangorestframework 3.4.3 - http://www.django-rest-framework.org
 
 To update the model diagram:
