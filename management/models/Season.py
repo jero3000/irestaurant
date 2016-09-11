@@ -41,7 +41,7 @@ class Season(models.Model):
     )
 
     def __str__(self):
-        return str(self.restaurant) + str(self.begin) + " - " + str(self.end)
+        return str(self.restaurant) + " " + str(self.begin) + " - " + str(self.end)
 
     class Meta:
         verbose_name=_('Season')
