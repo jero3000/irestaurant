@@ -27,7 +27,8 @@ class TimeSlot(models.Model):
         OpeningHours,
         on_delete=models.CASCADE,
         blank=False,
-        null=False
+        null=False,
+        related_name="timeslots"
     )
 
     def __str__(self):

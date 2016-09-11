@@ -70,8 +70,11 @@ class OpeningHours(models.Model):
 
     def __str__(self):
         days = self.deserialize_weekdays(self.weekdays)
+        final_str = ', '.join(days) + " "
 
-        return ', '.join(days)
+        for ts in self.timeslots.all():
+            final_str += "[" + str(ts) + "] "
+        return final_str
 
     class Meta:
         verbose_name=_('Opening hours')
