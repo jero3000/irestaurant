@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'rest_framework'
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -173,3 +173,9 @@ VERSATILEIMAGEFIELD_SETTINGS = {
     # here: https://optimus.io/support/progressive-jpeg/
     'progressive_jpeg': False
 }
+
+#Available languages
+LANGUAGES = (
+    ('es', 'Spanish'),
+    ('en', 'English'),
+)
