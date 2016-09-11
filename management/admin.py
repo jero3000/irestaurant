@@ -50,26 +50,25 @@ class DishAdmin(admin.ModelAdmin):
     inlines = [ImageResourceInline, VideoResourceInline]
 
 
-class OpeningHoursInline(admin.TabularInline):
-    model = OpeningHours
-    extra = 1
-
-
 class SeasonAdmin(admin.ModelAdmin):
-    inlines = [OpeningHoursInline]
+    None
 
 
 class TimeSlotInline(admin.TabularInline):
     model = TimeSlot
     extra = 1
 
+class CheckboxSelectMultipleWrapper(forms.CheckboxSelectMultiple):
+    """
+    Overwrites CheckboxSelectMultiple because the renderer should take a
+    list as argument (weekdays)
+    """
+    def render(self, name, value, attrs=None, choices=()):
+        return super(CheckboxSelectMultipleWrapper, self).render(name, value.split(","), attrs, choices)
+
 class MultipleChoiceForm(forms.ModelForm):
-    class Meta:
-        model = OpeningHours
-        fields = ('season', 'weekdays',)
-        widgets = {
-            'weekdays' : forms.SelectMultiple
-        }
+    weekdays = forms.MultipleChoiceField(widget=CheckboxSelectMultipleWrapper(),
+                                         choices=OpeningHours.CH_WEEKDAYS)
 
 
 class OpeningHoursAdmin(admin.ModelAdmin):
