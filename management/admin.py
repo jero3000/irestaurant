@@ -8,7 +8,7 @@ from embed_video.admin import AdminVideoMixin
 from irestaurant.admin import admin_site
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from modeltranslation.admin import TabbedTranslationAdmin
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationGenericStackedInline
 
 class AddressInline(admin.StackedInline):
     model = Address
@@ -30,14 +30,14 @@ class RestaurantAdmin(admin.ModelAdmin):
     inlines = [AddressInline, SeasonInline, DayClosedInline]
 
 
-class ImageResourceInline(GenericStackedInline):
+class ImageResourceInline(TranslationGenericStackedInline):
     model = ImageResource
     extra = 1
     readonly_fields = ['height', 'width']
     fields = ['title', 'image', 'height', 'width', 'pub_date']
 
 
-class VideoResourceInline(AdminVideoMixin, GenericStackedInline):
+class VideoResourceInline(AdminVideoMixin, TranslationGenericStackedInline):
     model = VideoResource
     extra = 1
     fields = ['title', 'video', 'pub_date']
@@ -51,7 +51,7 @@ class DishAdmin(TabbedTranslationAdmin):
     inlines = [ImageResourceInline, VideoResourceInline]
 
 
-class SeasonAdmin(admin.ModelAdmin):
+class SeasonAdmin(TabbedTranslationAdmin):
     None
 
 
