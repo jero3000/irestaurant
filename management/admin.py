@@ -8,14 +8,14 @@ from embed_video.admin import AdminVideoMixin
 from irestaurant.admin import admin_site
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from modeltranslation.admin import TabbedTranslationAdmin, TranslationGenericStackedInline
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationGenericStackedInline, TranslationTabularInline
 
 class AddressInline(admin.StackedInline):
     model = Address
     extra = 1
 
 
-class SeasonInline(admin.TabularInline):
+class SeasonInline(TranslationTabularInline):
     model = Season
     extra = 1
 
