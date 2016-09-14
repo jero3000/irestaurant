@@ -26,7 +26,7 @@ class DayClosed(models.Model):
     )
 
     def __str__(self):
-        return str(self.restaurant) + str(self.day)
+        return str(self.restaurant) + " " + str(self.day)
 
     class Meta:
         verbose_name=_('Day closed')
