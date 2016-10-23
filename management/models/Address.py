@@ -47,7 +47,7 @@ class Address(models.Model):
         null=False
     )
 
-    pais = models.CharField(
+    country = models.CharField(
         max_length=200,
         verbose_name=_('Country'),
         blank=False,
@@ -69,7 +69,8 @@ class Address(models.Model):
         Restaurant,
         on_delete=models.CASCADE,
         blank=False,
-        null=False
+        null=False,
+        related_name="addresses"
     )
 
     def __str__(self):
