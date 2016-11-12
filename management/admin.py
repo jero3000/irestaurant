@@ -34,7 +34,7 @@ class ImageResourceInline(TranslationGenericStackedInline):
     model = ImageResource
     extra = 1
     readonly_fields = ['height', 'width']
-    fields = ['title', 'image', 'height', 'width', 'pub_date']
+    fields = ['title', 'image', 'height', 'width', 'pub_date', 'main']
 
 
 class VideoResourceInline(AdminVideoMixin, TranslationGenericStackedInline):

@@ -37,6 +37,14 @@ class ImageResource(Resource):
         verbose_name=_('Point of interest')
     )
 
+    main = models.BooleanField(
+        verbose_name=_('Main picture'),
+        help_text=_('This a main representative picture that can be used for thumbnails'),
+        blank=False,
+        null=False,
+        default=False
+    )
+
     class Meta:
         verbose_name = _('Image')
         verbose_name_plural = _('Images')

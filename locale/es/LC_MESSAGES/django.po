@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-07 20:39+0200\n"
+"POT-Creation-Date: 2016-11-12 17:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "iRestaurant Administration"
 msgstr "Administración de iRestaurant"
 
-#: management/admin.py:48
+#: management/admin.py:49
 msgid "Additional info"
 msgstr "Información adicional"
 
@@ -62,17 +62,19 @@ msgstr "País"
 msgid ""
 "The phone number should have the following format: '+999999999'. 15 digits "
 "max"
-msgstr "El número de telefono debe tener el siguiente format: '+999999999'. 15 dígitos máximo"
+msgstr ""
+"El número de telefono debe tener el siguiente format: '+999999999'. 15 "
+"dígitos máximo"
 
 #: management/models/Address.py:65
 msgid "Telephone"
 msgstr "Telefono"
 
-#: management/models/Address.py:79
+#: management/models/Address.py:80
 msgid "Address"
 msgstr "Dirección"
 
-#: management/models/Address.py:80
+#: management/models/Address.py:81
 msgid "Addresses"
 msgstr "Direcciones"
 
@@ -126,15 +128,15 @@ msgstr "Precio"
 msgid "Publish date"
 msgstr "Fecha de publicación"
 
-#: management/models/Dish.py:59
+#: management/models/Dish.py:64
 msgid "Dish"
 msgstr "Plato"
 
-#: management/models/Dish.py:60
+#: management/models/Dish.py:65
 msgid "Dishes"
 msgstr "Platos"
 
-#: management/models/ImageResource.py:15 management/models/ImageResource.py:41
+#: management/models/ImageResource.py:15 management/models/ImageResource.py:49
 msgid "Image"
 msgstr "Imagen"
 
@@ -150,39 +152,47 @@ msgstr "Ancho"
 msgid "Point of interest"
 msgstr "Punto de interés"
 
+#: management/models/ImageResource.py:41
+msgid "Main picture"
+msgstr "Foto principal"
+
 #: management/models/ImageResource.py:42
+msgid "This a main representative picture that can be used for thumbnails"
+msgstr "Es una foto representativa para utilizar en miniaturas"
+
+#: management/models/ImageResource.py:50
 msgid "Images"
 msgstr "Imágenes"
 
-#: management/models/OpeningHours.py:14
+#: management/models/OpeningHours.py:15
 msgid "Monday"
 msgstr "Lunes"
 
-#: management/models/OpeningHours.py:15
+#: management/models/OpeningHours.py:16
 msgid "Tuesday"
 msgstr "Martes"
 
-#: management/models/OpeningHours.py:16
+#: management/models/OpeningHours.py:17
 msgid "Wednesday"
 msgstr "Miércoles"
 
-#: management/models/OpeningHours.py:17
+#: management/models/OpeningHours.py:18
 msgid "Thursday"
 msgstr "Jueves"
 
-#: management/models/OpeningHours.py:18
+#: management/models/OpeningHours.py:19
 msgid "Friday"
 msgstr "Viernes"
 
-#: management/models/OpeningHours.py:19
+#: management/models/OpeningHours.py:20
 msgid "Saturday"
 msgstr "Sábado"
 
-#: management/models/OpeningHours.py:20
+#: management/models/OpeningHours.py:21
 msgid "Sunday"
 msgstr "Domingo"
 
-#: management/models/OpeningHours.py:26 management/models/Season.py:47
+#: management/models/OpeningHours.py:27 management/models/Season.py:47
 msgid "Season"
 msgstr "Temporada"
 
@@ -194,7 +204,7 @@ msgstr "Días de la semana"
 msgid "Weeksdays in which the schedule applies"
 msgstr "Días de la semana en los que aplica el horario"
 
-#: management/models/OpeningHours.py:44 management/models/OpeningHours.py:45
+#: management/models/OpeningHours.py:80 management/models/OpeningHours.py:81
 msgid "Opening hours"
 msgstr "Horas de apertura"
 
@@ -226,11 +236,11 @@ msgstr "Fecha de fin de la temporada"
 msgid "Seasons"
 msgstr "Temporadas"
 
-#: management/models/TimeSlot.py:37
+#: management/models/TimeSlot.py:38
 msgid "Time slot"
 msgstr "Intervalo horario"
 
-#: management/models/TimeSlot.py:38
+#: management/models/TimeSlot.py:39
 msgid "Time slots"
 msgstr "Intervalos horarios"
 
