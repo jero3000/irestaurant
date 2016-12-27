@@ -26,3 +26,20 @@ Admin login:
 
 user: jmunoz
 pass: irestaurant123
+
+URLS:
+
+http://127.0.0.1:8000/ (main page)
+http://127.0.0.1:8000/admin (admin interface)
+http://127.0.0.1:8000/management/dishes/ (dishes REST API)
+http://127.0.0.1:8000/management/restaurants/ (restaurants REST API)
+
+Django REST Framework example:
+
+from management.models import Dish
+from management.serializers import DishSerializer
+from rest_framework.renderers import JSONRenderer
+d=Dish.objects.all()[0]
+ds=DishSerializer(d)
+JSONRenderer().render(ds.data)
+
