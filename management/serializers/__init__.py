@@ -1,2 +1,3 @@
 from RestaurantSerializer import RestaurantSerializer
 from DishSerializer import DishSerializer
+from ImageResourceSerializer import ImageResourceSerializer

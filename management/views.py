@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from models import Restaurant, Dish
-from serializers import RestaurantSerializer, DishSerializer
+from models import Restaurant, Dish, ImageResource
+from serializers import RestaurantSerializer, DishSerializer, ImageResourceSerializer
 from django.utils import timezone
 
 class RestaurantViewSet(viewsets.ReadOnlyModelViewSet):
@@ -22,6 +22,22 @@ class DishViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         """
         Filter the queryset to return only the published Dishes
+        :return: queryset filtered
+        """
+
+        return self.queryset.filter(pub_date__lte=timezone.now())
+
+
+class ImageResourceViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Retrieve ImageResource objects
+    """
+    queryset = ImageResource.objects.all()
+    serializer_class = ImageResourceSerializer
+
+    def get_queryset(self):
+        """
+        Filter the queryset to return only the published images
         :return: queryset filtered
         """
 
