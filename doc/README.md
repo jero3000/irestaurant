@@ -17,6 +17,7 @@ Django dependencies:
 - django-extensions 1.6.7 - http://django-extensions.readthedocs.io/en/latest/
 - django-modeltranslation 0.11 http://django-modeltranslation.readthedocs.io/en/stable/installation.html
 - djangorestframework 3.4.3 - http://www.django-rest-framework.org
+- django-filter - To enable filtering in REST API
 
 To update the model diagram:
 
