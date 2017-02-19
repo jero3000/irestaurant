@@ -4,6 +4,7 @@ from models import Restaurant, Dish, ImageResource, VideoResource
 from serializers import RestaurantSerializer, DishSerializer, ImageResourceSerializer, VideoResourceSerializer
 from django.utils import timezone
 
+
 class RestaurantViewSet(viewsets.ReadOnlyModelViewSet):
     """
     Retrieves Restaurant objects
@@ -12,12 +13,27 @@ class RestaurantViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = RestaurantSerializer
 
 
+class DishFilter(django_filters.rest_framework.FilterSet):
+    """
+    This class enables Dish filtering by restaurant id and
+    dish type
+    """
+    restaurant_id = django_filters.NumberFilter(name="restaurant__id")
+    type = django_filters.CharFilter(name="type")
+
+    class Meta:
+        model = Dish
+        fields = ['restaurant_id', 'type']
+
+
 class DishViewSet(viewsets.ReadOnlyModelViewSet):
     """
     Retrieve Dish objects
     """
     queryset = Dish.objects.all()
     serializer_class = DishSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_class = DishFilter
 
     def get_queryset(self):
         """
@@ -59,7 +75,7 @@ class ImageResourceViewSet(viewsets.ReadOnlyModelViewSet):
 
 class VideoFilter(django_filters.rest_framework.FilterSet):
     """
-    This class enables ImageResource filtering by a Dish id
+    This class enables VideoResource filtering by a Dish id
     """
     dish_id = django_filters.NumberFilter(name="dishes__id")
 
