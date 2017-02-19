@@ -1,7 +1,7 @@
 import django_filters
 from rest_framework import viewsets
-from models import Restaurant, Dish, ImageResource
-from serializers import RestaurantSerializer, DishSerializer, ImageResourceSerializer
+from models import Restaurant, Dish, ImageResource, VideoResource
+from serializers import RestaurantSerializer, DishSerializer, ImageResourceSerializer, VideoResourceSerializer
 from django.utils import timezone
 
 class RestaurantViewSet(viewsets.ReadOnlyModelViewSet):
@@ -51,6 +51,36 @@ class ImageResourceViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         """
         Filter the queryset to return only the published images
+        :return: queryset filtered
+        """
+
+        return self.queryset.filter(pub_date__lte=timezone.now())
+
+
+class VideoFilter(django_filters.rest_framework.FilterSet):
+    """
+    This class enables ImageResource filtering by a Dish id
+    """
+    dish_id = django_filters.NumberFilter(name="dishes__id")
+
+    class Meta:
+        model = VideoResource
+        fields = ['dish_id']
+
+
+class VideoResourceViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Retrieve VideoResource objects
+    """
+
+    queryset = VideoResource.objects.all()
+    serializer_class = VideoResourceSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_class = VideoFilter
+
+    def get_queryset(self):
+        """
+        Filter the queryset to return only the published videos
         :return: queryset filtered
         """
 

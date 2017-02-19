@@ -7,6 +7,7 @@ router = DefaultRouter()
 router.register(r'restaurants', views.RestaurantViewSet)
 router.register(r'dishes', views.DishViewSet)
 router.register(r'images', views.ImageResourceViewSet)
+router.register(r'videos', views.VideoResourceViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls))
