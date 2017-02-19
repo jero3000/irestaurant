@@ -183,3 +183,9 @@ LANGUAGES = (
 
 #This is the default language for models
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'
+
+#Configuring REST framework pagination
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'management.config.CustomPageNumberPagination',
+    'PAGE_SIZE': 100
+}
