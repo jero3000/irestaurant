@@ -8,6 +8,7 @@ from Restaurant import Restaurant
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.fields import GenericRelation
 from ImageResource import ImageResource
+from VideoResource import VideoResource
 
 
 @python_2_unicode_compatible
@@ -57,6 +58,11 @@ class Dish(models.Model):
 
     images = GenericRelation(
         ImageResource,
+        related_query_name='dishes'
+    )
+
+    videos = GenericRelation(
+        VideoResource,
         related_query_name='dishes'
     )
 
