@@ -44,3 +44,7 @@ d=Dish.objects.all()[0]
 ds=DishSerializer(d)
 JSONRenderer().render(ds.data)
 
+A change in a model class requires synchronization with the database:
+
+python manage.py makemigrations
+python manage.py migrate
