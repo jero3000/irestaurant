@@ -21,12 +21,15 @@ class OpeningHours(models.Model):
         ('do', _('Sunday')),
     )
 
+    WEEKDAYS_DICT = dict(zip(['lu','ma','mx','ju','vi','sa','do'], [x for x in range(0, 7)]))
+
     season = models.ForeignKey(
         Season,
         on_delete=models.CASCADE,
         verbose_name=_('Season'),
         blank=False,
-        null=False
+        null=False,
+        related_name='opening_hours'
     )
 
     weekdays = models.CharField(
@@ -36,6 +39,24 @@ class OpeningHours(models.Model):
         blank=False,
         null=False
     )
+
+    def is_open(self, dt):
+        """
+        Checks if the restaurant is open in the given date&time
+        :param dt: date and time to check
+        :return: True if the restaurant is open in dt, False in other case
+        """
+
+        res = False
+        days_week = [self.WEEKDAYS_DICT[day] for day in self.weekdays.split(",")]
+        if dt.date().weekday() in days_week:
+            slots=self.timeslots.all()
+            i = 0
+            while i<len(slots) and not res:
+                if(dt.time() >= slots[i].begin) and (dt.time() <= slots[i].end):
+                    res = True
+                i += 1
+        return res
 
     @classmethod
     def serialize_weekdays(cls, weekdays):

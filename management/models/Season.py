@@ -37,8 +37,24 @@ class Season(models.Model):
         Restaurant,
         on_delete=models.CASCADE,
         blank=False,
-        null=False
+        null=False,
+        related_name='seasons'
     )
+
+    def is_open(self, dt):
+        """
+        Checks if the restaurant is open in the given date&time
+        :param dt: date and time to check
+        :return: True if the restaurant is open in dt, False in other case
+        """
+
+        res=False
+        hours=self.opening_hours.all()
+        i=0
+        while i<len(hours) and not res:
+            res= hours[i].is_open(dt)
+            i += 1
+        return res
 
     def __str__(self):
         return str(self.restaurant) + " " + str(self.begin) + " - " + str(self.end)

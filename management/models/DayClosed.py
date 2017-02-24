@@ -22,7 +22,8 @@ class DayClosed(models.Model):
         Restaurant,
         on_delete=models.CASCADE,
         blank=False,
-        null=False
+        null=False,
+        related_name='days_closed'
     )
 
     def __str__(self):
