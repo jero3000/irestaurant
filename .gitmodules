@@ -1,0 +1,3 @@
+[submodule "apps/django-location-field"]
+	path = apps/django-location-field
+	url = https://github.com/jero3000/django-location-field.git

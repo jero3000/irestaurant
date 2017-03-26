@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'management.apps.ManagementConfig',
+    'location_field',
     'versatileimagefield',
     'embed_video',
     'modeltranslation',
