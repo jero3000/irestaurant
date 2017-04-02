@@ -29,14 +29,13 @@ class Restaurant(models.Model):
         :param dt: date and time to check
         :return: Season object
         """
+
         current_season = None
         i=0
-        seasons = self.seasons.all()
-        while (i<len(seasons)) and (current_season is None):
-            season = seasons[i]
-            if (dt.date() >= season.begin) and (dt.date() <= season.end):
-                current_season = season
-            i+=1
+        seasons = self.seasons.filter(begin__lte=dt.date()).filter(end__gte=dt.date())
+        if len(seasons) > 0:
+            current_season = seasons[0]
+
         return current_season
 
     def is_open(self, dt=timezone.now()):
