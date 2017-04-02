@@ -15,7 +15,6 @@ class RestaurantSerializer(serializers.ModelSerializer):
         model = Restaurant
         fields = ('id', 'name', 'email', 'addresses', 'is_open')
 
-# TODO Google Maps localization (Address class)
 # TODO Timetable for the restaurant and open? (boolean)
 # TODO sugggest API for searching restaurnts
 # TODO a restaurant should have images

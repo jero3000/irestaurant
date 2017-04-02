@@ -4,6 +4,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 from Restaurant import Restaurant
 from django.utils.translation import ugettext_lazy as _
+from location_field.models.plain import PlainLocationField
 
 class Address(models.Model):
     """
@@ -53,6 +54,13 @@ class Address(models.Model):
         blank=False,
         null=False
     )
+
+    location = PlainLocationField(
+        based_fields=['city', 'line1'],
+        verbose_name=_('Location'),
+        zoom=7,
+        blank=False,
+        null=False)
 
     phone_regex = RegexValidator(
         regex=r'^\+?1?\d{9,15}$',
