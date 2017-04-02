@@ -82,6 +82,19 @@ class OpeningHours(models.Model):
                     break
         return days
 
+    def to_representation(self):
+        """
+        Returns a valid representation of an OpeningHours object (serialization)
+        :return: the dictionary which represents the object (compliant with Django REST Framework)
+        """
+        rep = {}
+        rep['weekdays'] = ','.join(OpeningHours.deserialize_weekdays(self.weekdays))
+        hours = []
+        for ts in self.timeslots.all():
+            hours.append(str(ts))
+        rep['hours'] = hours
+        return rep
+
     def save(self, *args, **kwargs):
         """
         Overwrite django "save" method to serialize weekdays field correctly

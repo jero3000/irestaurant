@@ -56,6 +56,18 @@ class Season(models.Model):
             i += 1
         return res
 
+    def to_representation(self):
+        """
+        Returns a valid representation of a Season object (serialization)
+        :return: the list which represents the object (compliant with Django REST Framework)
+        """
+        rep = []
+        opening_hours = self.opening_hours.all()
+        for oh in opening_hours:
+            rep.append(oh.to_representation())
+
+        return rep
+
     def __str__(self):
         return str(self.restaurant) + " " + str(self.begin) + " - " + str(self.end)
 
