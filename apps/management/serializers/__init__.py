@@ -1,4 +1,4 @@
-from RestaurantSerializer import RestaurantSerializer
+from RestaurantSerializer import RestaurantSerializer, RestaurantSuggestSerializer
 from DishSerializer import DishSerializer
 from ImageResourceSerializer import ImageResourceSerializer
 from VideoResourceSerializer import VideoResourceSerializer

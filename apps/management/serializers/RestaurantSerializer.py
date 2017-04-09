@@ -25,5 +25,11 @@ class RestaurantSerializer(serializers.ModelSerializer):
         model = Restaurant
         fields = ('id', 'name', 'email', 'addresses', 'is_open')
 
-# TODO sugggest API for searching restaurnts
+
+class RestaurantSuggestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Restaurant
+        fields = ('name', 'url')
+
+
 # TODO a restaurant should have images
