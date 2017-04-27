@@ -10,6 +10,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from modeltranslation.admin import TabbedTranslationAdmin, TranslationGenericStackedInline, TranslationTabularInline
 
+
 class AddressInline(admin.StackedInline):
     model = Address
     extra = 1
@@ -25,11 +26,6 @@ class DayClosedInline(admin.TabularInline):
     extra = 1
 
 
-class RestaurantAdmin(admin.ModelAdmin):
-    fields = ['name', 'email']
-    inlines = [AddressInline, SeasonInline, DayClosedInline]
-
-
 class ImageResourceInline(TranslationGenericStackedInline):
     model = ImageResource
     extra = 1
@@ -41,6 +37,11 @@ class VideoResourceInline(AdminVideoMixin, TranslationGenericStackedInline):
     model = VideoResource
     extra = 1
     fields = ['title', 'video', 'pub_date']
+
+
+class RestaurantAdmin(admin.ModelAdmin):
+    fields = ['name', 'email']
+    inlines = [AddressInline, SeasonInline, DayClosedInline, ImageResourceInline, VideoResourceInline]
 
 
 class DishAdmin(TabbedTranslationAdmin):
@@ -59,6 +60,7 @@ class TimeSlotInline(admin.TabularInline):
     model = TimeSlot
     extra = 1
 
+
 class CheckboxSelectMultipleWrapper(forms.CheckboxSelectMultiple):
     """
     Overwrites CheckboxSelectMultiple because the renderer should take a
@@ -66,6 +68,7 @@ class CheckboxSelectMultipleWrapper(forms.CheckboxSelectMultiple):
     """
     def render(self, name, value, attrs=None, choices=()):
         return super(CheckboxSelectMultipleWrapper, self).render(name, value.split(","), attrs, choices)
+
 
 class MultipleChoiceForm(forms.ModelForm):
     weekdays = forms.MultipleChoiceField(widget=CheckboxSelectMultipleWrapper(),

@@ -97,10 +97,11 @@ class ImageFilter(django_filters.rest_framework.FilterSet):
     This class enables ImageResource filtering by a Dish id
     """
     dish_id = django_filters.NumberFilter(name="dishes__id")
+    restaurant_id = django_filters.NumberFilter(name="restaurants__id")
 
     class Meta:
         model = ImageResource
-        fields = ['dish_id']
+        fields = ['dish_id', 'restaurant_id']
 
 
 class ImageResourceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -126,10 +127,11 @@ class VideoFilter(django_filters.rest_framework.FilterSet):
     This class enables VideoResource filtering by a Dish id
     """
     dish_id = django_filters.NumberFilter(name="dishes__id")
+    restaurant_id = django_filters.NumberFilter(name="restaurants__id")
 
     class Meta:
         model = VideoResource
-        fields = ['dish_id']
+        fields = ['dish_id', 'restaurant_id']
 
 
 class VideoResourceViewSet(viewsets.ReadOnlyModelViewSet):

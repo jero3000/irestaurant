@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from management.models import Restaurant, Address
 from django.utils import timezone
-
+from DishSerializer import VersatileImageFiledUniqueVersionSerializer
 
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,6 +11,7 @@ class AddressSerializer(serializers.ModelSerializer):
 
 class RestaurantSerializer(serializers.ModelSerializer):
     addresses = AddressSerializer(many=True, read_only=True)
+    thumbnail = VersatileImageFiledUniqueVersionSerializer(source='get_main_image', rendition_key='thumbnail__100x100')
 
     def to_representation(self, instance):
         dict = super(RestaurantSerializer, self).to_representation(instance)
@@ -23,7 +24,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Restaurant
-        fields = ('id', 'name', 'email', 'addresses', 'is_open')
+        fields = ('id', 'name', 'email', 'addresses', 'is_open', 'thumbnail')
 
 
 class RestaurantSuggestSerializer(serializers.ModelSerializer):
