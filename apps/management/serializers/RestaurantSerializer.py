@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from management.models import Restaurant, Address
 from django.utils import timezone
-from DishSerializer import VersatileImageFiledUniqueVersionSerializer
+from ImageResourceSerializer import VersatileImageFiledUniqueVersionSerializer
 
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
