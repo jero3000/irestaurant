@@ -8,6 +8,7 @@ from rest_framework.decorators import list_route
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from django.utils.http import urlquote
+from django.contrib.contenttypes.models import ContentType
 
 
 class RestaurantByCityFilter(django_filters.rest_framework.FilterSet):
@@ -92,12 +93,23 @@ class DishViewSet(viewsets.ReadOnlyModelViewSet):
         return self.queryset.filter(pub_date__lte=timezone.now())
 
 
+def filter_by_restaurant(queryset, name, value):
+    restaurant = Restaurant.objects.get(id=value)
+    restaurant_type = ContentType.objects.get_for_model(restaurant)
+    return queryset.filter(content_type__pk=restaurant_type.id, object_id=restaurant.id)
+
+def filter_by_dish(queryset, name, value):
+    dish = Dish.objects.get(id=value)
+    dish_type = ContentType.objects.get_for_model(dish)
+    return queryset.filter(content_type__pk=dish_type.id, object_id=dish.id)
+
+
 class ImageFilter(django_filters.rest_framework.FilterSet):
     """
     This class enables ImageResource filtering by a Dish id
     """
-    dish_id = django_filters.NumberFilter(name="dishes__id")
-    restaurant_id = django_filters.NumberFilter(name="restaurants__id")
+    dish_id = django_filters.NumberFilter(method=filter_by_dish, label=u'Dish id')
+    restaurant_id = django_filters.NumberFilter(method=filter_by_restaurant, label=u'Restaurant id')
 
     class Meta:
         model = ImageResource

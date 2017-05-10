@@ -8,3 +8,4 @@ from OpeningHours import OpeningHours
 from TimeSlot import TimeSlot
 from DayClosed import DayClosed
 from Address import Address
+from MultimediaModel import MultimediaModel
